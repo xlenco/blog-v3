@@ -71,13 +71,14 @@ const yearlyWordCount = computed(() => {
                 </div>
             </div>
             <menu class="archive-list">
-                <TransitionGroup>
+                <TransitionGroup appear name="float-in">
                     <ZArchive
-                        v-for="article in yearGroup"
+                        v-for="article, index in yearGroup"
                         :key="article._path"
                         v-bind="article"
                         :to="article._path"
                         :use-updated="sortOrder === 'updated'"
+                        :style="{ '--delay': `${index * 0.03}s` }"
                     />
                 </TransitionGroup>
             </menu>
@@ -93,16 +94,6 @@ const yearlyWordCount = computed(() => {
 
 .archive-group {
     margin: 1rem 0 3rem;
-
-    &:hover {
-        .archive-title {
-            color: var(--c-text-3);
-        }
-
-        .archive-age {
-            opacity: 0;
-        }
-    }
 }
 
 .archive-title {
@@ -118,7 +109,15 @@ const yearlyWordCount = computed(() => {
     color: transparent;
     transition: color 0.2s;
 
-    .archive-year, .archive-age {
+    :hover > & {
+        color: var(--c-text-3);
+
+        .archive-age {
+            opacity: 0;
+        }
+    }
+
+    > .archive-year, .archive-age {
         margin-bottom: -0.3em;
         mask: linear-gradient(#fff 50%, transparent);
         font: 800 3em/1 var(--font-stroke-free);
@@ -126,18 +125,18 @@ const yearlyWordCount = computed(() => {
         -webkit-text-stroke: 1px var(--c-text-3);
     }
 
-    .archive-age {
+    > .archive-age {
         position: absolute;
         right: 0;
         transition: opacity 0.2s;
 
-        .age-label {
+        > .age-label {
             font-size: 0.5em;
             vertical-align: super;
         }
     }
 
-    .archive-info {
+    > .archive-info {
         display: flex;
         justify-content: flex-end;
         column-gap: 0.5em;

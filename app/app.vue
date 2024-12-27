@@ -10,7 +10,6 @@
         </main>
         <ZAside />
     </div>
-    <ZSearch />
     <ZPanel />
 </template>
 

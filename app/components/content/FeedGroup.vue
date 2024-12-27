@@ -11,19 +11,24 @@ defineProps<{
     <h2 class="feed-label">
         {{ label }}
     </h2>
-    <div v-for="group in feeds" :key="group.name" class="feed-group">
+    <section v-for="group in feeds" :key="group.name" class="feed-group">
         <h3 class="feed-title">
             {{ group.name }}
         </h3>
         <p class="feed-desc">
             {{ group.desc }}
         </p>
-        <menu class="feed-list">
-            <li v-for="enery in group.entries" :key="enery.link" class="feed-card">
-                <FeedCard v-bind="enery" />
+        <TransitionGroup tag="menu" class="feed-list" appear name="float-in">
+            <li
+                v-for="entry, index in group.entries"
+                :key="index"
+                class="feed-card"
+                :style="`--delay: ${index * 0.1}s;`"
+            >
+                <FeedCard v-bind="entry" />
             </li>
-        </menu>
-    </div>
+        </TransitionGroup>
+    </section>
 </template>
 
 <style lang="scss" scoped>
@@ -34,10 +39,6 @@ defineProps<{
 .feed-group {
     // position: relative;
     margin: 2rem 1rem;
-
-    &:hover > .feed-title {
-        color: var(--c-text-3);
-    }
 }
 
 .feed-title {
@@ -52,6 +53,10 @@ defineProps<{
     transition: color 0.2s;
     z-index: -1;
     -webkit-text-stroke: 1px var(--c-text-3);
+
+    :hover > & {
+        color: var(--c-text-3);
+    }
 }
 
 .feed-desc {

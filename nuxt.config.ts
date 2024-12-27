@@ -21,8 +21,7 @@ export default defineNuxtConfig({
                 // { rel: 'stylesheet', href: 'https://gcore.jsdelivr.net/npm/nerdfonts-web/nf.min.css' },
             ],
             meta: [
-                { name: 'author', content: blogConfig.author.name },
-                { name: 'color-scheme', content: 'light dark' },
+                { name: 'author', content: `${blogConfig.author.name} <${blogConfig.author.email}>` },
                 { 'name': 'generator', 'data-github-repo': 'https://github.com/L33Z22L11/blog-v3' },
             ],
             templateParams: {
@@ -43,14 +42,15 @@ export default defineNuxtConfig({
     ],
 
     css: [
+        '@/assets/css/animation.scss',
         '@/assets/css/article.scss',
         '@/assets/css/color.scss',
         '@/assets/css/main.scss',
         '@/assets/css/reusable.scss',
     ],
 
-    experimental: {
-        viewTransition: true,
+    features: {
+        inlineStyles: false,
     },
 
     future: {

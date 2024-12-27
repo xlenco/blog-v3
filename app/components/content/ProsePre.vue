@@ -28,6 +28,13 @@ const meta = computed(() => {
     }, {})
 })
 
+const appConfig = useAppConfig()
+
+const rows = computed(() => props.code.split('\n').length)
+const collapsibleHeight = computed(() => `${appConfig.content.codeblockCollapsibleRows}em`)
+const collapsible = computed(() => rows.value > appConfig.content.codeblockCollapsibleRows)
+const [isCollapsed, toggleCollapsed] = useToggle(collapsible.value)
+
 const icon = computed(() => meta.value.icon || getFileIcon(props.filename) || getLangIcon(props.language))
 const isWrap = ref(meta.value.wrap)
 
@@ -38,7 +45,7 @@ useCopy(copyBtn, codeblock)
 </script>
 
 <template>
-    <figure class="z-codeblock">
+    <figure class="z-codeblock" :class="{ collapsed: isCollapsed, collapsible }">
         <figcaption>
             <span v-if="filename" class="filename">
                 <ClientOnly>
@@ -65,6 +72,20 @@ useCopy(copyBtn, codeblock)
             class="scrollcheck-x"
             :class="[props.class, { wrap: isWrap }]"
         ><slot /></pre>
+        <button
+            v-if="collapsible"
+            type="button"
+            class="toggle-btn"
+            :aria-label="isCollapsed ? '展开代码块' : '折叠代码块'"
+            @click="toggleCollapsed()"
+        >
+            <Icon
+                class="toggle-icon"
+                :class="{ 'is-collapsed': isCollapsed }"
+                name="ph:caret-double-up-bold"
+            />
+            <span class="toggle-tip">{{ rows }} 行</span>
+        </button>
     </figure>
 </template>
 
@@ -78,8 +99,21 @@ useCopy(copyBtn, codeblock)
     font-size: 0.8125rem;
     line-height: 1.4;
 
-    &:hover .operations {
-        opacity: 1;
+    &.collapsed {
+        pre {
+            overflow: hidden;
+            max-height: v-bind("collapsibleHeight");
+            mask: linear-gradient(to bottom, #fff 80%, transparent);
+            animation: none;
+        }
+
+        .toggle-btn {
+            margin: 0.5em;
+        }
+    }
+
+    &.collapsible pre {
+        padding-bottom: 2rem;
     }
 }
 
@@ -92,20 +126,20 @@ figcaption {
     padding: 0 1em;
     z-index: 1;
 
-    .filename {
+    > .filename {
         padding: 0.2em 0.8em;
         border-radius: 0 0 0.5em 0.5em;
         background-color: var(--c-border);
         word-break: break-all;
     }
 
-    .language {
+    > .language {
         opacity: 0.4;
         height: 0;
         line-height: 1.8em;
     }
 
-    .operations {
+    > .operations {
         position: absolute;
         opacity: 0;
         top: 0;
@@ -115,6 +149,10 @@ figcaption {
         background-color: var(--c-bg-2);
         line-height: 1.8em;
         transition: opacity 0.2s;
+
+        :hover > & {
+            opacity: 1;
+        }
 
         > button {
             opacity: 0.4;
@@ -175,6 +213,40 @@ pre {
 
         outline: 0.2em solid var(--ld-bg-active);
         background-color: var(--ld-bg-active);
+    }
+}
+
+.toggle-btn {
+    position: absolute;
+    inset: auto 0 0;
+    margin: 0.8em;
+    padding: 0.2em;
+    border-radius: 0.5em;
+    background-color: var(--c-bg-3);
+    text-align: center;
+    color: var(--c-text-2);
+}
+
+.toggle-icon {
+    transition: all 0.2s;
+
+    &.is-collapsed {
+        transform: rotate(180deg);
+    }
+
+    :hover > & {
+        opacity: 0;
+    }
+}
+
+.toggle-tip {
+    position: absolute;
+    opacity: 0;
+    inset: auto 0;
+    transition: opacity 0.2s;
+
+    :hover > & {
+        opacity: 1;
     }
 }
 

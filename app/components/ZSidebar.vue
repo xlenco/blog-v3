@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
 const layoutStore = useLayoutStore()
+const _searchStore = useSearchStore()
 
 const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' : 'Ctrl+K')
 </script>
@@ -25,7 +26,7 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
                 </h3>
                 <menu>
                     <li v-for="(item, itemIndex) in group.items" :key="itemIndex">
-                        <ZRawLink :to="item.url" class="sidebar-nav-item">
+                        <ZRawLink :to="item.url" class="sidebar-nav-item" @click="layoutStore.toggle('sidebar')">
                             <Icon :name="item.icon" />
                             <span class="nav-text">{{ item.text }}</span>
                             <Icon v-if="item?.external" class="external-tip" name="ph:arrow-up-right" />
@@ -144,6 +145,10 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
         background-color: transparent;
     }
 
+    .nav-text {
+        opacity: 0.5;
+    }
+
     .keycut {
         opacity: 0.5;
         padding: 0 0.2em;
@@ -154,12 +159,13 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
 }
 
 .sidebar-footer {
+    --gap: clamp(0.5rem, 3vh, 1rem);
+
+    display: grid;
+    gap: var(--gap);
+    padding: var(--gap);
     font-size: 0.8em;
     text-align: center;
     color: var(--c-text-2);
-
-    > * {
-        margin-block: clamp(0.5rem, 3vh, 1rem);
-    }
 }
 </style>

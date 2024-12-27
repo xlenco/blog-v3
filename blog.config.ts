@@ -19,6 +19,7 @@ const blogConfig = {
     },
     favicon: 'https://weavatar.com/avatar/67254b346498965226e5c91ebff66a69570b97f224d2d061e504b4eade1f00fa?s=160',
     language: 'zh-CN',
+    qqGroup: '169994096',
     timeEstablished: '2022-07-20',
     timezone: 'Asia/Shanghai',
     url: 'https://blog.xlenco.top/',
@@ -46,7 +47,7 @@ const blogConfig = {
     // 同时用于显示代码块语言对应的 Iconify Catppuccin 图标
     shiki: {
         bundledLangs: <BundledLanguage[]>['bat', 'log', 'sh', 'powershell'],
-        langs: <BundledLanguage[]>['bat', 'c', 'cpp', 'css', 'diff', 'html', 'ini', 'java', 'js', 'json', 'log', 'makefile', 'matlab', 'md', 'mdc', 'powershell', 'python', 'sh', 'ssh-config', 'toml', 'ts', 'tsx', 'vb', 'vue', 'xml', 'yaml'],
+        langs: <BundledLanguage[]>['bat', 'c', 'cpp', 'css', 'diff', 'html', 'ini', 'java', 'js', 'json', 'log', 'makefile', 'matlab', 'md', 'mdc', 'powershell', 'python', 'sh', 'sql', 'ssh-config', 'toml', 'ts', 'tsx', 'vb', 'vue', 'xml', 'yaml'],
         themes: <BundledTheme[]>['catppuccin-latte', 'one-dark-pro'],
         defaultTheme: <BundledTheme>'catppuccin-latte',
         darkTheme: <BundledTheme>'one-dark-pro',
@@ -60,7 +61,7 @@ const blogConfig = {
 }
 
 // 用于生成 OPML 和友链页面配置
-export const feedEntry = <FeedEntry>{
+export const myFeed = <FeedEntry>{
     author: blogConfig.author.name,
     sitenick: '摸鱼处',
     title: blogConfig.title,
