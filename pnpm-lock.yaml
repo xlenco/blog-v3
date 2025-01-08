@@ -7753,6 +7753,12 @@ snapshots:
 
   base64-js@1.5.1: {}
 
+  better-sqlite3@11.5.0:
+    dependencies:
+      bindings: 1.5.0
+      prebuild-install: 7.1.2
+    optional: true
+
   binary-extensions@2.3.0: {}
 
   bindings@1.5.0:
@@ -8182,7 +8188,9 @@ snapshots:
 
   date-fns@4.1.0: {}
 
-  db0@0.2.1: {}
+  db0@0.2.1(better-sqlite3@11.5.0):
+    optionalDependencies:
+      better-sqlite3: 11.5.0
 
   debug@2.6.9:
     dependencies:
@@ -10050,7 +10058,7 @@ snapshots:
       cookie-es: 1.2.2
       croner: 9.0.0
       crossws: 0.3.1
-      db0: 0.2.1
+      db0: 0.2.1(better-sqlite3@11.5.0)
       defu: 6.1.4
       destr: 2.0.3
       dot-prop: 9.0.0
@@ -10096,6 +10104,8 @@ snapshots:
       unstorage: 1.13.1(ioredis@5.4.1)
       untyped: 1.5.1
       unwasm: 0.3.9
+    optionalDependencies:
+      xml2js: 0.6.2
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -11239,6 +11249,9 @@ snapshots:
       postcss-value-parser: 4.2.0
       yoga-wasm-web: 0.3.3
 
+  sax@1.4.1:
+    optional: true
+
   scslre@0.3.0:
     dependencies:
       '@eslint-community/regexpp': 4.12.1
@@ -12245,6 +12258,15 @@ snapshots:
   ws@8.18.0: {}
 
   xml-name-validator@4.0.0: {}
+
+  xml2js@0.6.2:
+    dependencies:
+      sax: 1.4.1
+      xmlbuilder: 11.0.1
+    optional: true
+
+  xmlbuilder@11.0.1:
+    optional: true
 
   xmlhttprequest-ssl@2.1.2: {}
 
