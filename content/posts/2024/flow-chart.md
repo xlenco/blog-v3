@@ -5,6 +5,7 @@ updated: 2024-10-04 20:35:02
 image: https://xlenco-img.s3.bitiful.net/i/2024/10/9cde8a4321c28f60cb3fab08cccbe711.webp
 description:  这篇文章介绍了什么是流程图以及流程图的作用，并介绍了流程图的基本符号，实例与制作流程图的工具。
 ---
+This message is used to verify that this feed (feedId:56926726139406336) belongs to me (userId:97987919067595776). Join me in enjoying the next generation information browser https://follow.is.
 
 ## 一、 流程和流程图
 
