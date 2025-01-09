@@ -38,7 +38,7 @@ const { data: postLink } = await useAsyncData('/link', () => queryContent('/link
                 <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
                 <ProseA href="/zhilu.opml">友链源 OPML 聚合</ProseA>，可导入阅读器或
                 <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
-                <ProseA href="https://app.follow.is/share/lists/72840182614552576">订阅 Follow List</ProseA>。
+                <ProseA href="https://app.follow.is/share/lists/56926726139406336">订阅 Follow List</ProseA>。
             </p>
         </div>
         <div class="operations">
