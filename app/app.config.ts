@@ -63,7 +63,7 @@ export default defineAppConfig({
     header: {
         logo: 'https://q.qlogo.cn/headimg_dl?dst_uin=1043865083&spec=640&img_type=webp',
         text: true,
-        subtitle: 'feedId:56926726139406336+userId:97987919067595776',
+        subtitle: '总有人间一两风，吹我十万八千梦',
         emojiTail: ['📄', '🦌', '🙌', '🐟', '🏖️'],
     },
 

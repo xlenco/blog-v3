@@ -4,7 +4,7 @@ import type { FeedEntry } from '~/types/feed'
 // 存储 nuxt.config 和 app.config 共用的配置
 const blogConfig = {
     title: '希乐博客',
-    subtitle: 'feedId:56926726139406336+userId:97987919067595776',
+    subtitle: '总有人间一两风，吹我十万八千梦',
     description: 'Xlenco的个人博客，分享技术与生活。“生命不息，折腾不止”。Xlenco是一名开源爱好者，本博客采用了纸鹿的开源博客，这个博客记录了他在生活和技术学习中的点滴经历，充满启发与思考。网站界面简洁美观，内容丰富实用，涵盖了编程、生活、学习等多个领域，为读者提供了卓越的阅读体验。',
     author: {
         name: 'Xlenco',
