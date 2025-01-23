@@ -67,28 +67,28 @@
 .deng-box {
   position: fixed;
   top: -40px;
-  right: -80px;
+  right: -20px;
   z-index: 1999;
 }
 
 .deng-box1 {
   position: fixed;
   top: -30px;
-  right: 120px;
+  right: 30px;
   z-index: 1998;
 }
 
 .deng-box2 {
   position: fixed;
   top: -40px;
-  left: -80px;
+  left: -20px;
   z-index: 1999;
 }
 
 .deng-box3 {
   position: fixed;
   top: -30px;
-  left: 120px;
+  left: 30px;
   z-index: 1998;
 }
 
@@ -226,7 +226,7 @@
 }
 
 .deng-t {
-  font-family: 'AlimamaFangYuanTi', sans-serif;
+  font-family: ;
   font-size: 3.2rem;
   color: #dc8f03;
   font-weight: bold;
