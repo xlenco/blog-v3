@@ -14,9 +14,7 @@
     <ZPanel />
 </template>
 
-<script setup>
-import Lantern from '~/components/Lantern.vue'
-</script>
+
 
 <!-- eslint-disable-next-line vue/enforce-style-attribute -->
 <style lang="scss">
