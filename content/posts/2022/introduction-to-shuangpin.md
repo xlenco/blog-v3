@@ -1,7 +1,7 @@
 ---
 title: 双拼语法介绍以及选择
 date: 2022-11-25 14:26:00
-updated: 2022-11-25 18:25:00
+updated: 2025-2-2 18:25:00
 image: https://xlenco.onmicrosoft.cn/img/c65c2ec5a7f9.jpg
 description: 这篇文章介绍了双拼输入法，一种基于拼音的高效输入方案。
 ---
@@ -43,7 +43,10 @@ u ua uo uai uei(ui) uan uen(un) uang ueng(eng)
 ![20240621084743](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621084743.jpg)
 ![20240621084750](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621084750.jpg)
 
-### 双拼方案的练习
+## 双拼方案的练习
 
 《[让双拼不再是只属于少数人的输入方式](https://sspai.com/post/42667)》一文的作者开发了非常合适的练习站点，[双拼练习 @ BlueSky](https://api.ihint.me/shuang/)。站点提供了网站版与微信小程序，支持 17 种双拼方案，网站也完美支持手机查看。
 ![20240621084913](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621084913.jpg)
+
+## 目前的选择
+2025/2/2 目前我已从自然码切换到了小鹤双拼。新的东西总对我有种特殊的吸引力。
