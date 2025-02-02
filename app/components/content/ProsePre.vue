@@ -31,7 +31,6 @@ const meta = computed(() => {
 const appConfig = useAppConfig()
 
 const rows = computed(() => props.code.split('\n').length)
-const collapsibleHeight = computed(() => `${appConfig.content.codeblockCollapsibleRows}em`)
 const collapsible = computed(() => rows.value > appConfig.content.codeblockCollapsibleRows)
 const [isCollapsed, toggleCollapsed] = useToggle(collapsible.value)
 
@@ -39,13 +38,16 @@ const icon = computed(() => meta.value.icon || getFileIcon(props.filename) || ge
 const isWrap = ref(meta.value.wrap)
 
 const codeblock = useTemplateRef('codeblock')
-const copyBtn = useTemplateRef('copy-btn')
 
-useCopy(copyBtn, codeblock)
+const { copy, copied } = useCopy(codeblock)
 </script>
 
 <template>
-    <figure class="z-codeblock" :class="{ collapsed: isCollapsed, collapsible }">
+    <figure
+        class="z-codeblock"
+        :class="{ collapsed: isCollapsed, collapsible }"
+        :style="{ '--collapsible-height': `${appConfig.content.codeblockCollapsibleRows}em` }"
+    >
         <figcaption>
             <span v-if="filename" class="filename">
                 <ClientOnly>
@@ -60,8 +62,8 @@ useCopy(copyBtn, codeblock)
                 <button @click="isWrap = !isWrap">
                     {{ isWrap ? '横向滚动' : '自动换行' }}
                 </button>
-                <button ref="copy-btn">
-                    复制
+                <button @click="copy()">
+                    {{ copied ? '已复制' : '复制' }}
                 </button>
             </div>
         </figcaption>
@@ -74,7 +76,6 @@ useCopy(copyBtn, codeblock)
         ><slot /></pre>
         <button
             v-if="collapsible"
-            type="button"
             class="toggle-btn"
             :aria-label="isCollapsed ? '展开代码块' : '折叠代码块'"
             @click="toggleCollapsed()"
@@ -102,7 +103,7 @@ useCopy(copyBtn, codeblock)
     &.collapsed {
         pre {
             overflow: hidden;
-            max-height: v-bind("collapsibleHeight");
+            max-height: var(--collapsible-height);
             mask: linear-gradient(to bottom, #fff 80%, transparent);
             animation: none;
         }

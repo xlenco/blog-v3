@@ -6,20 +6,28 @@ export default defineAppConfig({
     ...blogConfig,
 
     article: {
-        categories: {
+        categories: <{ [key: string]: { icon: string, color?: string } }>{
             经验分享: { icon: 'ph:mouse-bold', color: '#3af' },
             生活: { icon: 'ph:shooting-star-bold', color: '#3ba' },
             代码: { icon: 'ph:code-bold', color: '#77f' },
+            未分类: { icon: 'ph:folder-dotted-bold' },
         },
+        defaultCategoryIcon: 'ph:folder-bold',
         order: {
             date: '创建日期',
             updated: '更新日期',
             // title: '标题',
         },
+        // 需要同时修改上方分类图标对应的键名
+        uncategorizedLabel: '未分类',
     },
 
     content: {
         codeblockCollapsibleRows: 16,
+        excerpt: {
+            animation: true,
+            caret: '_',
+        },
     },
 
     footer: {
@@ -62,8 +70,9 @@ export default defineAppConfig({
 
     header: {
         logo: 'https://q.qlogo.cn/headimg_dl?dst_uin=1043865083&spec=640&img_type=webp',
-        text: true,
-        subtitle: '总有人间一两风，吹我十万八千梦',
+        /** 展示标题，否则展示纯 Logo */
+        showTitle: true,
+        subtitle: blogConfig.subtitle,
         emojiTail: ['📄', '🦌', '🙌', '🐟', '🏖️'],
     },
 
@@ -84,6 +93,11 @@ export default defineAppConfig({
             ],
         },
     ],
+
+    seasonal: {
+        widgetBackground: 'https://wsrv.nl/?url=i2.hdslb.com/bfs/archive/46165212e09842103752c453d7987a470059760b.jpg@320w',
+        emoji: '🧧',
+    },
 
     stats: {
         /** 归档页面每年标题对应的年龄 */

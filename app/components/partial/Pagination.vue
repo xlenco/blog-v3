@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
     totalPages: number
-    perPage: number
 }>()
 
 const page = defineModel<number>({ required: true })
@@ -19,7 +18,6 @@ const pageArr = computed(() => genPageArr(page.value, props.totalPages))
         <template v-for="i in pageArr" :key="i">
             <button
                 v-if="Number.isFinite(i)"
-                type="button"
                 class="pagination-button"
                 :class="{ active: i === page }"
                 :aria-label="`第${i}页`"

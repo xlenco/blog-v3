@@ -6,13 +6,11 @@ import subscriptions from '~/subscriptions'
 
 const runtimeConfig = useRuntimeConfig()
 
-const xmlBuilderOptions = {
+const builder = new XMLBuilder({
     attributeNamePrefix: '$',
     format: true,
     ignoreAttributes: false,
-}
-
-const builder = new XMLBuilder(xmlBuilderOptions)
+})
 
 function mapEntry(item: FeedEntry) {
     return {

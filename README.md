@@ -9,15 +9,17 @@
 
 我的第三代个人博客，于 2024 年 8 月 11 日上线。
 
-## 预览
+## 使用本主题的博客
 
-https://blog.zhilu.cyou
+- [纸鹿摸鱼处 @L33Z22L11](https://blog.zhilu.cyou/) · [开发经历](https://blog.zhilu.cyou/2024/blog-using-nuxt)
+- [希乐博客 @Xlenco](https://blog.xlenco.top/)
+- [SteinsNote @Labmem-00](https://blog.labmem.chat/) · [迁移经历](https://blog.labmem.chat/2024/beforeeverything)
+- [月空人 @Whbbit1999](https://whbbit.cn/) · [迁移评价](https://whbbit.cn/2025/why-migrate-to-nuxt)
+- [地球驿站 @mugzx](https://blog.mugzx.top/) · [迁移记录](https://blog.mugzx.top/)
 
 ## 特性
 
-> [!Tip]
->
-> 请阅读 [在线文档](https://blog.zhilu.cyou/theme) 或 [仓库源文件](/content/theme.md)。
+[主题特性](https://blog.zhilu.cyou/theme) · [组件示例](https://blog.zhilu.cyou/previews/example)
 
 ## 目录结构
 
@@ -38,7 +40,7 @@ https://blog.zhilu.cyou
 │   │   ├── page/[[id]].vue # 首页动态路由
 │   │   ├── archive.vue # 归档
 │   │   ├── link.vue # 友链
-│   │   └── preview.vue # 隐藏的文章（可被站内搜索）
+│   │   └── preview.vue # 预览的文章
 │   ├── plugins # Nuxt / Vue 插件
 │   ├── stores # Pinia 状态管理
 │   ├── types # 类型定义
@@ -47,9 +49,8 @@ https://blog.zhilu.cyou
 │   ├── app.vue # 布局
 │   └── error.vue # 错误页
 ├── content # 文章
-│   ├── drafts # 草稿，生产环境不显示
 │   ├── posts # 文章
-│   ├── previews # 预览
+│   ├── previews # 预览文章，可被站内搜索
 │   ├── link.md # 友链（正文）
 │   └── theme.md # 主题介绍
 ├── patches # npm 包补丁
@@ -60,8 +61,7 @@ https://blog.zhilu.cyou
 │   │   └── stats.get.ts # 博客静态统计
 │   ├── plugins # Nitro 插件
 │   │   ├── anti-mirror.ts # 恶意反代跳转
-│   │   ├── fix-post-date.ts # 修复文章时区
-│   │   └── fix-post-path.ts # 美化文章链接
+│   │   └── fix-post.ts # 修复文章时区/链接
 │   └── routes # 路由
 │       └── atom.xml.get.ts # Atom 订阅源
 ├── blog.config.ts # 博客公共配置
@@ -88,6 +88,7 @@ pnpm dev
 
 ```sh
 pnpm generate
+pnpm preview
 ```
 
 ### 部署

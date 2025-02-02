@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { alphabetical, sort } from 'radash'
+import { sort } from 'radash'
 
 const appConfig = useAppConfig()
 useSeoMeta({
     description: appConfig.description,
     ogImage: appConfig.author.avatar,
 })
-const perPage = appConfig.pagination.perPage || 10
-const sortOrder = ref(appConfig.pagination.sortOrder || 'date')
-const isAscending = ref<boolean>()
 
 const layoutStore = useLayoutStore()
 layoutStore.setAside(['blog_stats', 'connectivity'])
@@ -22,15 +19,12 @@ const { data: listRaw } = await useAsyncData(
     { default: () => [] },
 )
 
-const listSorted = computed(() => alphabetical(
-    listRaw.value,
-    item => item[sortOrder.value],
-    isAscending.value ? 'asc' : 'desc',
-))
+const { listSorted, isAscending, sortOrder } = useArticleSort(listRaw)
+const { category, categories, listCategorized } = useCategory(listSorted, { bindQuery: 'category' })
+const { page, totalPages, listPaged } = usePagination(listCategorized, { bindParam: 'id' })
 
-const { page, totalPages, listPaged } = usePagination(listSorted, {
-    perPage,
-    bindParam: 'id',
+watch(category, () => {
+    page.value = 1
 })
 
 useSeoMeta({ title: () => (page.value > 1 ? `第${page.value}页` : '') })
@@ -47,7 +41,7 @@ const listRecommended = computed(() => sort(
         <!-- 若不包裹，display: none 在 JS 加载后才有足够优先级 -->
         <ZhiluHeader to="/" />
     </div>
-    <PostSlide v-if="listRecommended?.length && page === 1" :list="listRecommended" />
+    <PostSlide v-if="listRecommended?.length && page === 1 && !category" :list="listRecommended" />
     <div class="post-list">
         <div class="toolbar">
             <div>
@@ -60,10 +54,12 @@ const listRecommended = computed(() => sort(
             <ZOrderToggle
                 v-model:is-ascending="isAscending"
                 v-model:sort-order="sortOrder"
+                v-model:category="category"
+                :categories
             />
         </div>
         <NuxtPage :list="listPaged" :sort-order />
-        <ZPagination v-model="page" :per-page :total-pages />
+        <ZPagination v-model="page" :total-pages />
     </div>
 </template>
 

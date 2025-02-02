@@ -54,6 +54,7 @@ export default defineNuxtConfig({
     },
 
     future: {
+        // BUG: 3.14+ Windows 平台内存泄漏
         compatibilityVersion: 4,
     },
 
@@ -79,6 +80,9 @@ export default defineNuxtConfig({
                 },
             },
         },
+        server: {
+            allowedHosts: true,
+        },
     },
 
     modules: [
@@ -90,7 +94,7 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@vueuse/nuxt',
         '@zinkawaii/nuxt-shiki',
-
+        'radix-vue/nuxt',
     ],
 
     colorMode: {

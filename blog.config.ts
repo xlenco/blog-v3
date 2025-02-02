@@ -1,5 +1,6 @@
 import type { BundledLanguage, BundledTheme } from 'shiki'
 import type { FeedEntry } from '~/types/feed'
+import { zhCN } from 'date-fns/locale'
 
 // 存储 nuxt.config 和 app.config 共用的配置
 const blogConfig = {
@@ -59,6 +60,8 @@ const blogConfig = {
         preload: 'https://twikoo2.xlenco.top/.netlify/functions/twikoo',
     },
 }
+
+export const dateLocale = zhCN
 
 // 用于生成 OPML 和友链页面配置
 export const myFeed = <FeedEntry>{

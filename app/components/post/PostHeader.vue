@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import type ArticleProps from '~/types/article'
 
+defineOptions({ inheritAttrs: false })
 const props = defineProps<ArticleProps>()
+
 const appConfig = useAppConfig()
 const publishedLabel = getPostDate(props.date)
 const updatedLabel = getPostDate(props.updated)
 
 const categoryLabel = props.categories?.[0]
-const categoryIcon = appConfig.article.categories[categoryLabel!]?.icon
+const categoryIcon = getCategoryIcon(props.categories?.[0])
 
 const shareText = `【${appConfig.title}】${props.title}\n\n${
     props.description ? `${props.description}\n\n` : ''}${
     new URL(props._path!, appConfig.url).href}`
 
-const btnShareByText = useTemplateRef('text-share')
-useCopy(btnShareByText, btnShareByText, shareText)
-
-// TODO: 生成分享图片
-const _btnShareByText = useTemplateRef('image-share')
+const { copy, copied } = useCopy(shareText)
 </script>
 
 <template>
@@ -26,31 +24,32 @@ const _btnShareByText = useTemplateRef('image-share')
         <NuxtImg v-if="image" class="post-cover" :src="image" :alt="title" />
         <div class="post-nav">
             <div class="operations">
-                <ZButton ref="text-share" icon="ph:share-bold">
+                <ZButton
+                    :icon="copied ? 'ph:check-bold' : 'ph:share-bold' "
+                    @click="copy()"
+                >
                     文字分享
-                </ZButton>
-                <ZButton v-if="false" ref="image-share" icon="ph:share-bold">
-                    图片分享
                 </ZButton>
             </div>
             <div v-if="!hideInfo" class="post-info">
-                <time
-                    v-if="date"
-                    v-tippy="`创建于 ${getLocaleDatetime(props.date)}`"
-                    :datetime="date"
-                >
-                    <Icon name="ph:calendar-dots-bold" /> {{ publishedLabel }}</time>
-                <time
+                <ZTip v-if="date" :tip="`创建于 ${getLocaleDatetime(props.date)}`">
+                    <time :datetime="getIsoDatetime(date)">
+                        <Icon name="ph:calendar-dots-bold" /> {{ publishedLabel }}
+                    </time>
+                </ZTip>
+                <ZTip
                     v-if="isTimeDiffSignificant(date, updated, .999)"
-                    v-tippy="`修改于 ${getLocaleDatetime(props.updated)}`"
-                    :datetime="updated"
+                    :tip="`修改于 ${getLocaleDatetime(props.updated)}`"
                 >
-                    <Icon name="ph:calendar-plus-bold" /> {{ updatedLabel }}</time>
+                    <time :datetime="getIsoDatetime(updated)">
+                        <Icon name="ph:calendar-plus-bold" /> {{ updatedLabel }}
+                    </time>
+                </ZTip>
                 <span v-if="categoryLabel" class="article-category">
                     <Icon :name="categoryIcon" /> {{ categoryLabel }}
                 </span>
                 <span class="wordcount">
-                    <Icon name="ph:paragraph-bold" /> {{ formatNumber(readingTime.words) }} 字
+                    <Icon name="ph:paragraph-bold" /> {{ formatNumber(readingTime?.words) }} 字
                 </span>
             </div>
         </div>

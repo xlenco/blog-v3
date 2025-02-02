@@ -9,7 +9,7 @@ const showAllDate = isTimeDiffSignificant(props.date, props.updated)
 
 const categoryLabel = props.categories?.[0]
 const categoryColor = appConfig.article.categories[categoryLabel!]?.color
-const categoryIcon = appConfig.article.categories[categoryLabel!]?.icon
+const categoryIcon = getCategoryIcon(props.categories?.[0])
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const categoryIcon = appConfig.article.categories[categoryLabel!]?.icon
             <div class="article-info" data-allow-mismatch>
                 <time
                     v-if="showAllDate || !useUpdated"
-                    :datetime="date"
+                    :datetime="getIsoDatetime(date)"
                     :title="getLocaleDatetime(date)"
                 >
                     <Icon name="ph:calendar-dots-bold" />
@@ -34,7 +34,7 @@ const categoryIcon = appConfig.article.categories[categoryLabel!]?.icon
                 <time
                     v-if="showAllDate || useUpdated"
                     :class="{ 'use-updated': useUpdated }"
-                    :datetime="updated"
+                    :datetime="getIsoDatetime(updated)"
                     :title="getLocaleDatetime(updated)"
                 >
                     <Icon name="ph:calendar-plus-bold" />

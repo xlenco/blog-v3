@@ -5,25 +5,22 @@ interface UsePaginationOptions {
 }
 
 export default function usePagination<T>(list: MaybeRefOrGetter<T[]>, options?: UsePaginationOptions) {
+    const appConfig = useAppConfig()
     const {
         initialPage = 1,
-        perPage = 10,
+        perPage = appConfig.pagination.perPage || 10,
         bindParam = false,
     } = options ?? {}
 
-    const totalPages = Math.ceil(toValue(list).length / perPage) || initialPage
+    const totalPages = computed(() => Math.ceil(toValue(list).length / perPage) || initialPage)
+
+    function transformPage(val: string) {
+        const page = Number(val)
+        return page >= 1 && page <= totalPages.value ? page : initialPage
+    }
 
     const page = bindParam
-        ? useRouteParams(
-            bindParam,
-            initialPage,
-            {
-                transform(val) {
-                    const page = Number(val)
-                    return page >= 1 && page <= totalPages ? page : initialPage
-                },
-            },
-        )
+        ? useRouteParams(bindParam, initialPage.toString(), { transform: transformPage })
         : ref(initialPage)
 
     const listPaged = computed(() => {

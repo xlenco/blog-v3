@@ -12,6 +12,7 @@ const { data: surrounds } = await useAsyncData(`surround-${route.path}`, () => q
 const [prev = null, next = null] = surrounds.value ?? []
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate<{
+    // TODO: defineOptions({ inheritAttrs: false })
     post: ArticleProps | null
     icon: string
     fallbackIcon: string
@@ -24,10 +25,10 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate<{
         <ZRawLink :to="post?._path" class="surround-link">
             <Icon :name="post ? icon : fallbackIcon" />
             <div>
-                <h4 class="title" :class="{ 'text-story': post?.type === 'story' }">
+                <div class="title" :class="{ 'text-story': post?.type === 'story' }">
                     {{ post?.title || fallbackText }}
-                </h4>
-                <time v-if="post" :datetime="post.date">{{ getPostDate(post.date) }}</time>
+                </div>
+                <time v-if="post" :datetime="getIsoDatetime(post.date)">{{ getPostDate(post.date) }}</time>
             </div>
         </ZRawLink>
     </DefineTemplate>

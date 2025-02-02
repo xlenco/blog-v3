@@ -1,17 +1,18 @@
 <template>
-    <NuxtLoadingIndicator />
-    <Lantern />
-    <SkipToContent />
-    <ZSidebar />
-    <div id="content">
-        <main id="main-content">
-            <!-- TODO: 路由动画(ArticleListItem, PostHeader) -->
-            <NuxtPage />
-            <ZFooter />
-        </main>
-        <ZAside />
-    </div>
-    <ZPanel />
+    <ConfigProvider>
+        <NuxtLoadingIndicator />
+        <SkipToContent />
+        <ZSidebar />
+        <div id="content">
+            <main id="main-content">
+                <NuxtPage />
+                <ZFooter />
+            </main>
+            <ZAside />
+        </div>
+        <ZPanel />
+        <ZPopover />
+    </ConfigProvider>
 </template>
 
 

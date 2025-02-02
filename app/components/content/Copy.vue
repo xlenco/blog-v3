@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { createPlainShiki, type MountPlainShikiOptions } from 'plain-shiki'
-import { useTippy } from 'vue-tippy'
+import type { MountPlainShikiOptions } from 'plain-shiki'
+import { createPlainShiki } from 'plain-shiki'
 
 const props = withDefaults(defineProps<{
     /* noprompt?: boolean */
@@ -17,10 +17,8 @@ const language = computed(() => props.lang ?? getPromptLanguage(props.prompt))
 
 const showUndo = ref(false)
 const codeInput = useTemplateRef('code-input')
-const copyBtn = useTemplateRef('copy-btn')
 
-useTippy(codeInput, { content: '可以修改命令后再复制', trigger: 'focus' })
-useCopy(copyBtn, codeInput)
+const { copy, copied } = useCopy(codeInput)
 
 function undo() {
     if (!codeInput.value)
@@ -35,7 +33,6 @@ function beforeInput(event: InputEvent) {
     const { data, inputType } = event
     if (data?.includes('\n') || inputType === 'insertLineBreak') {
         event.preventDefault()
-        showTooltipMessage(event.target as Element, '不支持换行')
     }
 }
 
@@ -45,7 +42,6 @@ function onInput(event: InputEvent) {
 
 onMounted(async () => {
     const shiki = await getShikiHighlighter()
-    // BUG: 无法高亮特定语言 PowerShell
     const shikiOptions = await resolveShikiOptions({ lang: language.value })
     createPlainShiki(shiki).mount(codeInput.value!, shikiOptions as MountPlainShikiOptions)
 })
@@ -58,16 +54,17 @@ onMounted(async () => {
             ref="code-input"
             contenteditable="plaintext-only"
             class="code"
+            spellcheck="false"
             @beforeinput="beforeInput($event as InputEvent)"
             @input="onInput($event as InputEvent)"
             v-text="code"
         />
         <div class="mask" />
-        <button v-if="showUndo" v-tippy="'恢复原始内容'" class="operation" aria-label="恢复原始内容" @click="undo">
+        <button v-if="showUndo" class="operation" aria-label="恢复原始内容" @click="undo">
             <Icon name="ph:arrow-u-up-left-bold" />
         </button>
-        <button ref="copy-btn" v-tippy="'复制'" class="operation" aria-label="复制">
-            <Icon name="ph:copy-bold" />
+        <button class="operation" aria-label="复制" @click="copy()">
+            <Icon :name="copied ? 'ph:check-bold' : 'ph:copy-bold'" />
         </button>
     </code>
 </template>

@@ -5,7 +5,9 @@ const promptLanguageMap: Record<string, string> = {
     'PS': 'sh', // powershell 语言高亮有问题
 }
 
-export function formatNumber(num: number) {
+export function formatNumber(num?: number) {
+    if (typeof num !== 'number')
+        return ''
     const intervals = [
         { label: '万亿', threshold: 1e12 },
         { label: '亿', threshold: 1e8 },
@@ -34,8 +36,4 @@ export function highlightHTML(text: string, word: string, className: string = 'h
         .replace(pattern, matched => `<span class="${className}">${matched}</span>`)
         .replace(/\n+/g, '<br>')
     return highlightedText
-}
-
-export function joinWithBR(...strs: (string | undefined)[]) {
-    return strs.filter(str => str?.trim()).join('<br>')
 }
