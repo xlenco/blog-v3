@@ -4,6 +4,8 @@ date: 2024-2-16
 updated: 2024-2-17
 image: https://xlenco-img.s3.bitiful.net/i/2024/07/42548dfb0383fadd60129e3cecee81ca.webp
 description: 这篇文章将教你如何将语雀的文章同步到本地，并自动部署到 Hexo 博客。
+categories: [经验分享]
+tags: [Hexo, 语雀]
 ---
 > 本文章由语雀编写
 

@@ -4,6 +4,8 @@ image: https://xlenco-img.s3.bitiful.net/i/2024/07/f3d64c69109b8aea5dff3569dc2bb
 description: 介绍了为什么要用公共DNS，并列出了一些公共DNS服务
 date: 2024-07-18 17:58:09
 updated: 2025-01-23 00:00:00
+categories: [经验分享]
+tags: [DNS]
 ---
 
 域名系统（DNS）是互联网的一项核心服务，它把以“.com”、“.net”、“.org”等为后缀的域名转换成易于理解的IP地址，使得用户在浏览器中输入域名时，能够被指引到对应的网站。DNS服务器则是实现这一转换的服务器，它们构成了互联网的基础设施，对于全球的互联网用户来说，DNS服务器的重要性不言而喻。

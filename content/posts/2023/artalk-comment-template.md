@@ -4,10 +4,12 @@ date: 2023-1-5 11:15:00
 updated: 2023-1-5 11:15:00
 image: https://xlenco.onmicrosoft.cn/img/995c-826fc514f2aa.webp
 description: 这篇文章介绍了作者对Artalk默认邮箱通知模板进行美化的过程。
+categories: [经验分享]
+tags: [Artalk]
 ---
 ## 前言
 
-不知道大家有没有发现。感觉 Artalk 默认的邮箱通知模版感觉不够好看。刚好之前在糖果屋 🍬 群文件中发现了店长的 twikoo 信笺样式通知邮件模板，于是我就把它移植过来了。
+不知道大家有没有发现, Artalk 默认的邮箱通知模版不够好看。刚好之前在糖果屋 🍬 群文件中发现了店长的 twikoo 信笺样式通知邮件模板，于是我就把它移植过来了。
 
 ## Dome
 

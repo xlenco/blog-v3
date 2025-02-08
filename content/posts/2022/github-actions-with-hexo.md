@@ -4,6 +4,8 @@ date: 2022-08-25 22:01:13
 updated: 2022-12-9 14:15:00
 image: https://xlenco.onmicrosoft.cn/img/7bf185e5.webp
 description: 这篇文章介绍了GitHub Actions的概念和使用方式。如何使用Github Actions自动化部署Hexo博客。
+categories: [经验分享]
+tags: [GitHub Actions, Hexo]
 ---
 ### Github Actions概念
 

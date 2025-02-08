@@ -4,6 +4,8 @@ image: https://xlenco-img.s3.bitiful.net/i/2024/08/a66d0a6348093d1a6d5d89c136464
 description: 这篇文章介绍了一款无需Root即可拥有大部分玩机体验的工具Root，并且附上了一些支持Shizuku的工具。
 date: 2024-08-21 17:57:18
 updated: 2024-09-21 17:57:18
+categories: [经验分享]
+tags: [教程, Shizuku]
 ---
 
 什么是ROOT？ 简单来说，ROOT就是获取根权限，比如Window有两种类型的使用者，一个是Administrator（管理员），另一个是User（普通用户）。管理员要比普通用户有更高的权限，可以对系统执行更多的操作。 在我们拿到一部安卓手机时，我们往往对此手机只有作为普通用户的使用权限，而在ROOT后，我们就能获取手机的根权限，从而对手机系统做更多操作，这就是ROOT的原因。
@@ -29,16 +31,18 @@ Github 地址：https://github.com/RikkaApps/Shizuku
 首先用搜索引擎搜索（推荐 bing）一下你的手机机型如何进入**开发人员选项。**
 
 以我的荣耀手机为例，在设置中点三下**版本号，即可进入开发人员选项。**
-
-![img](https://xlenco-img.s3.bitiful.net/i/2024/08/24da663347e724c85b3d89d85b26348b.)
+<img src="https://xlenco-img.s3.bitiful.net/i/2024/08/24da663347e724c85b3d89d85b26348b." alt="img" width="50%" high="50%">
 
 在系统和更新中找到**开发人员选项，**
 
-![img](https://xlenco-img.s3.bitiful.net/i/2024/08/f45a157fee5524663eda2b83bfa67621.)
+<img src="https://xlenco-img.s3.bitiful.net/i/2024/08/f45a157fee5524663eda2b83bfa67621."
+alt="img" width="50%" high="50%">
+
 
 进入后开启 **USB 调试和无线调试，**
 
-![img](https://xlenco-img.s3.bitiful.net/i/2024/08/6abe18b30ad726c1a311bab2dd0dec6e.)
+<img src="https://xlenco-img.s3.bitiful.net/i/2024/08/6abe18b30ad726c1a311bab2dd0dec6e."
+alt="img" width="50%" high="50%">
 
 在**无线调试**中点击**使用配对码配对设备**，上滑通知栏在 shizuku 中输入配对码（前提是 shizuku 已在后台运行），再在 shizuku 中启动，等待几秒即可成功启动✌️。可能不同手机机型进入**开发人员选项**的方式各有差异，如果和我说使用的方式不同可以在网上查阅你的机型如何开启
 

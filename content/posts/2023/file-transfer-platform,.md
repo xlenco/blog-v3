@@ -4,6 +4,8 @@ date: 2023-1-3 15:34:00
 updated: 2023-1-3 17:34:00
 image: https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240620/20240620230951.jpg
 description: 这篇文章介绍了几种不同的文件传输平台，以满足不同用户在不同情境下的文件传输需求。
+categories: [经验分享]
+tags: [文件传输]
 ---
 ## 前言
 

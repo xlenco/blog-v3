@@ -4,6 +4,8 @@ image: https://xlenco-img.s3.bitiful.net/i/2024/06/107b5ba4319387d99fbe042e8ebc6
 description: 介绍了一些高效记笔记的方法。
 date: 2024-06-23 15:08:28
 updated: 2024-06-24 15:08:28
+categories: [经验分享]
+tags: [笔记]
 ---
 
 笔记只是一个重要的方法而已，是一个工具而已。
