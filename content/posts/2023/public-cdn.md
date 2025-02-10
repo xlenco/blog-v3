@@ -2,7 +2,7 @@
 title: 常用前端公共CDN
 date: 2023-8-29 21:13:00
 updated: 2023-9-13 20:02:00
-image: https://xlenco.onmicrosoft.cn/img/OIP-C.jpg
+image: https://xlenco-img.s3.bitiful.net/i/2025/02/eecf9c6cb355812c18caff01fa65f0b5.webp
 description: 这篇文章介绍了一些常用的前端公共CDN，便于开发者使用CDN加速自己的静态资源。
 categories: [经验分享]
 tags: [CDN]

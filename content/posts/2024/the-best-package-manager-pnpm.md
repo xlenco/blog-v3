@@ -112,12 +112,20 @@ pnpm config set store-dir "E:\pnpm-store\pnpm-store"
 
 ```
 ### 纸鹿大佬的建议 
-@[纸鹿 (@L33Z22L11)](https://zhilu.cyou)
-使用 npm 安装 pnpm 后，建议重新通过 pnpm 安装 pnpm，再将 npm 安装的 pnpm 卸载掉。
 
-```sh
+
+2024-08-21
+
+::chat
+
+{:2024-08-21 }
+
+{.}
+
+{.纸鹿}
+
+使用 npm 安装 pnpm 后，建议重新通过 pnpm 安装 pnpm，再将 npm 安装的 pnpm 卸载掉。
 npm install -g pnpm
 pnpm setup
 pnpm add -g pnpm
 npm remove -g npm
-```

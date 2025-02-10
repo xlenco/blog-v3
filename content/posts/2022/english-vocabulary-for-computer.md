@@ -2,8 +2,10 @@
 title: 计算机专业英语词汇大全
 date: 2022-9-11 13:01:00
 updated: 2022-9-11 14:29:00
-image: https://xlenco.onmicrosoft.cn/img/99167D.jpg
+image: https://xlenco-img.s3.bitiful.net/i/2025/02/e4fec2d04350e0cb7a7566d7e1e28779.jpg
 description: 整理出的一些计算机专业英语词汇。
+categories: [笔记]
+tags: [杂项]
 ---
 ## Ａ
 

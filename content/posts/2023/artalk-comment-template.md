@@ -2,7 +2,7 @@
 title: Artalk 评论邮件模板美化
 date: 2023-1-5 11:15:00
 updated: 2023-1-5 11:15:00
-image: https://xlenco.onmicrosoft.cn/img/995c-826fc514f2aa.webp
+image: https://xlenco-img.s3.bitiful.net/i/2025/02/6b04a5ee8a482eb50717b8fc3ad0e32e.webp
 description: 这篇文章介绍了作者对Artalk默认邮箱通知模板进行美化的过程。
 categories: [经验分享]
 tags: [Artalk]

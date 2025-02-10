@@ -2,7 +2,7 @@
 title: dns-prefetch、prefetch、preload、defer、async 字段的区别
 date: 2022-12-19 17:45:07
 updated: 2022-12-19 17:45:07
-image: https://xlenco.onmicrosoft.cn/img/html.png
+image: https://xlenco-img.s3.bitiful.net/i/2025/02/b940fb38078aed23f0bfe91d8563912b.png
 description: 这篇文章介绍了几种HTML资源预加载技术。
 categories: [经验分享]
 tags: [HTML]

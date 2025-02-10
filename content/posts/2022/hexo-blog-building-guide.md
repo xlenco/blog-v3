@@ -2,7 +2,7 @@
 title: Hexo｜博客搭建指南
 date: 2022-8-28 16:12
 updated: 2022-8-28 20:12
-image: https://xlenco.onmicrosoft.cn/img/20200715201402.webp
+image: https://xlenco-img.s3.bitiful.net/i/2025/02/f529205694532393ef4fd151bcefb336.webp
 description: 这篇文章介绍了作者搭建个人博客Hexo的全过程。
 categories: [经验分享]
 tags: [教程, Hexo, Blog]

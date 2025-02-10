@@ -2,7 +2,7 @@
 title: 利用Github Actions自动化部署你Hexo博客
 date: 2022-08-25 22:01:13
 updated: 2022-12-9 14:15:00
-image: https://xlenco.onmicrosoft.cn/img/7bf185e5.webp
+image: https://xlenco-img.s3.bitiful.net/i/2025/02/2dcf73bdb4ccfec602c0ebcd7812267b.webp
 description: 这篇文章介绍了GitHub Actions的概念和使用方式。如何使用Github Actions自动化部署Hexo博客。
 categories: [经验分享]
 tags: [GitHub Actions, Hexo]
@@ -26,9 +26,9 @@ Git推送到Github库的常用连接方案是HTTPS和SSH这两种连接方式。
 1. 获取Github access tokens
 打开https://github.com/settings/tokens
 点击Generate new token新建个token
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621085318.jpg)
+![](https://xlenco-img.s3.bitiful.net/i/2025/02/dbb55454f08af526aeb9e248d53efc3f.webp)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621085431.jpg)
+![](https://xlenco-img.s3.bitiful.net/i/2025/02/a3b9ce30d494291781499e35a0f37d1c.webp)
 
 ## 创建存放Hexo源码的私有仓库
 
@@ -110,15 +110,15 @@ jobs:
 
 在你仓库的`Settings->Secrets->actions`
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621085424.jpg)
+![](https://xlenco-img.s3.bitiful.net/i/2025/02/2dca27461c53221858903d63b13f888a.webp)
 
 ## 查看部署情况
 
 此时，打开GIthub存放源码的私有仓库，找到action。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621085418.jpg)
+![](https://xlenco-img.s3.bitiful.net/i/2025/02/3ce06c87f17b11a632eb7f578d820367.webp)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/x/xlenco/20240621/20240621085428.jpg)
+![](https://xlenco-img.s3.bitiful.net/i/2025/02/080e0f73053adf912fee8b368b6dc19e.webp)
 
 根据刚刚的Commit记录找到相应的任务,点击Deploy查看部署情况 , 若全部打钩，恭喜你，你现在可以享受自动部署的快感了。
 
