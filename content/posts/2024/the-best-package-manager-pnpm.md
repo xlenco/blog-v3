@@ -121,11 +121,13 @@ pnpm config set store-dir "E:\pnpm-store\pnpm-store"
 {:2024-08-21 13:39:30 }
 
 {.纸鹿}
-
 使用 npm 安装 pnpm 后，建议重新通过 pnpm 安装 pnpm，再将 npm 安装的 pnpm 卸载掉。
-
+{.纸鹿}
 npm install -g pnpm
+{.纸鹿}
 pnpm setup
+{.纸鹿}
 pnpm add -g pnpm
+{.纸鹿}
 npm remove -g npm
 ::
