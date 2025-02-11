@@ -29,11 +29,9 @@ description:
 date: ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
 updated: 
 # image: 
-# type: story
 categories: []
 tags: []
 
-draft: true
 ---
 \n\n`, 'utf8')
 
