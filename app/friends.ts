@@ -15,7 +15,7 @@ export default <FeedGroup[]>[
                 archs: ['Hexo', 'CDN (国内)'],
                 date: '2024-02-02',
                 comment: '知名博主，其博客设计风格被众多人借鉴。',
-            },            
+            },
             {
                 name: 'Leonus',
                 desc: '进一寸有进一寸的欢喜',
@@ -25,7 +25,7 @@ export default <FeedGroup[]>[
                 archs: ['Hexo', 'CDN (国内)'],
                 date: '2024-10-03',
                 comment: '用Butterfly主题时遇到的大佬。',
-            },  
+            },
             {
                 name: 'Akilar',
                 desc: '欢迎光临糖果屋',
@@ -34,8 +34,8 @@ export default <FeedGroup[]>[
                 icon: 'https://npm.elemecdn.com/akilar-candyassets/image/siteicon/favicon.png',
                 archs: ['Hexo', 'CDN (国内)'],
                 date: '2024-10-03',
-                comment: '糖果屋的建立者，被网友称为‘店长’。', 
-            }, 
+                comment: '糖果屋的建立者，被网友称为‘店长’。',
+            },
             {
                 name: '纸鹿本鹿',
                 desc: '纸鹿至麓不知路，支炉制露不止漉',
@@ -55,7 +55,7 @@ export default <FeedGroup[]>[
                 archs: ['Hexo', 'Vercel'],
                 date: '2024-10-03',
                 comment: '之前认识的前端大佬',
-            },              
+            },
         ],
     },
     {
@@ -79,7 +79,7 @@ export default <FeedGroup[]>[
                 archs: ['Mix Space', 'Cloudflare'],
                 date: '2024-07-11',
                 comment: '西北地区高中生，开源爱好者。',
-            }, 
+            },
             {
                 name: '葱苓samaの博客',
                 desc: "Don't worry, Be happy.",
@@ -87,7 +87,7 @@ export default <FeedGroup[]>[
                 icon: 'https://blog.ciraos.top/avatar1.avif ',
                 archs: ['Hexo', 'CDN (国内)'],
                 date: '2024-10-03',
-            },  
+            },
             {
                 name: '知行博客',
                 desc: 'Java开发代码实战，搜你所需，快速CV，早点下班～',
@@ -119,7 +119,7 @@ export default <FeedGroup[]>[
                 icon: 'https://blog.storical.space/images/icon.png',
                 archs: ['Hexo', 'CDN (国内)'],
                 date: '2024-11-40',
-            },                                 
+            },
         ],
     },
 ]

@@ -1,8 +1,12 @@
+import type { NitroConfig } from 'nitropack'
 import type { BundledLanguage, BundledTheme } from 'shiki'
 import type { FeedEntry } from '~/types/feed'
-import { zhCN } from 'date-fns/locale'
+import redirectList from './redirects.json'
+
+export { zhCN as dateLocale } from 'date-fns/locale/zh-CN'
 
 // 存储 nuxt.config 和 app.config 共用的配置
+// 此处为启动时需要的配置，启动后可变配置位于 app/app.config.ts
 const blogConfig = {
     title: '希乐博客',
     subtitle: '总有人间一两风，吹我十万八千梦',
@@ -29,6 +33,7 @@ const blogConfig = {
         limit: 50,
     },
 
+    // 在 URL 中隐藏的路径前缀
     hideContentPrefixes: ['/posts'],
 
     imageDomains: [
@@ -37,11 +42,12 @@ const blogConfig = {
         // '7.isyangs.cn',
     ],
 
+    // 禁止搜索引擎收录的路径
     robotsNotIndex: ['/preview', '/previews/*'],
 
     scripts: [
-//        { 'src': 'https://zhi.zhilu.cyou/zhi.js', 'data-website-id': 'a1997c81-a42b-46f6-8d1d-8fbd67a8ef41', 'defer': true },
-//        { 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': true },
+        //        { 'src': 'https://zhi.zhilu.cyou/zhi.js', 'data-website-id': 'a1997c81-a42b-46f6-8d1d-8fbd67a8ef41', 'defer': true },
+        //        { 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': true },
     ],
 
     // 用于 Shiki、Plain Shiki 引入代码高亮
@@ -54,14 +60,13 @@ const blogConfig = {
         darkTheme: <BundledTheme>'one-dark-pro',
     },
 
+    // 用于 Twikoo 评论系统
     twikoo: {
         js: 'https://jsd.onmicrosoft.cn/npm/twikoo@1.6.39/dist/twikoo.all.min.js',
         envId: 'https://twikoo2.xlenco.top/.netlify/functions/twikoo',
         preload: 'https://twikoo2.xlenco.top/.netlify/functions/twikoo',
     },
 }
-
-export const dateLocale = zhCN
 
 // 用于生成 OPML 和友链页面配置
 export const myFeed = <FeedEntry>{
@@ -76,6 +81,21 @@ export const myFeed = <FeedEntry>{
     archs: ['Nuxt', 'Vercel'],
     date: blogConfig.timeEstablished,
     comment: '这是我自己',
+}
+
+// 将旧页面永久重定向到新页面
+const redirectRouteRules = Object.entries(redirectList)
+    .reduce<NitroConfig['routeRules']>((acc, [from, to]) => {
+        acc![from] = { redirect: { to, statusCode: 301 } }
+        return acc
+    }, {})
+
+// https://nitro.build/config#routerules
+export const routeRules = <NitroConfig['routeRules']>{
+    ...redirectRouteRules,
+    '/api/stats': { prerender: true, headers: { 'Content-Type': 'application/json' } },
+    '/atom.xml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
+    '/zhilu.opml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
 }
 
 export default blogConfig

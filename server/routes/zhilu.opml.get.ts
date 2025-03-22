@@ -15,12 +15,11 @@ const builder = new XMLBuilder({
 function mapEntry(item: FeedEntry) {
     return {
         $text: item.title || item.sitenick || item.author,
+        $type: 'rss',
+        $xmlUrl: item.feed,
+        $created: new Date(item.date).toISOString(),
         $description: item.desc,
         $htmlUrl: item.link || item.feed,
-        $created: new Date(item.date).toISOString(),
-        $type: 'rss',
-        $title: item.title || item.sitenick || item.author,
-        $xmlUrl: item.feed,
     }
 }
 
@@ -29,7 +28,7 @@ function flattenGroups(groups: FeedGroup[]) {
         group.entries.filter(entry => entry.feed).map(mapEntry))
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_e) => {
     const outlines = [
         mapEntry(myFeed),
         ...flattenGroups(subscriptions),
@@ -50,7 +49,6 @@ export default defineEventHandler(async (event) => {
         body: { outline: outlines },
     }
 
-    setHeader(event, 'Content-Type', 'application/xml; charset=UTF-8')
     return builder.build({
         '?xml': { $version: '1.0', $encoding: 'UTF-8' },
         opml,
