@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type ArticleProps from '~/types/article'
 
-const props = defineProps< { useUpdated?: boolean } & ArticleProps>()
+const props = defineProps<{ useUpdated?: boolean } & ArticleProps>()
 
 const appConfig = useAppConfig()
 
@@ -9,7 +9,7 @@ const showAllDate = isTimeDiffSignificant(props.date, props.updated)
 
 const categoryLabel = props.categories?.[0]
 const categoryColor = appConfig.article.categories[categoryLabel!]?.color
-const categoryIcon = getCategoryIcon(props.categories?.[0])
+const categoryIcon = getCategoryIcon(categoryLabel)
 </script>
 
 <template>

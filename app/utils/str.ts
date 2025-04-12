@@ -1,6 +1,7 @@
+// @keep-sorted
 const promptLanguageMap: Record<string, string> = {
-    '$': 'sh',
     '#': 'sh',
+    '$': 'sh',
     'CMD': 'bat',
     'PS': 'sh', // powershell 语言高亮有问题
 }
@@ -30,10 +31,16 @@ export function getPromptLanguage(prompt: string | boolean) {
     return 'plaintext'
 }
 
-export function highlightHTML(text: string, word: string, className: string = 'highlight') {
+export function highlightHtml(text: string, word: string, className: string = 'highlight') {
     const pattern = new RegExp(word, 'gi')
     const highlightedText = text
         .replace(pattern, matched => `<span class="${className}">${matched}</span>`)
         .replace(/\n+/g, '<br>')
     return highlightedText
+}
+
+export function removeHtmlTags(str?: string) {
+    if (typeof str !== 'string')
+        return ''
+    return str.replace(/<[^>]+(>|$)/g, '')
 }

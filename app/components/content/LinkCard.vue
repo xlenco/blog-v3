@@ -11,7 +11,7 @@ const src = computed(() => getImgUrl(props.icon, props.mirror))
 </script>
 
 <template>
-    <ZRawLink :to="link" class="link-card card">
+    <ZRawLink :to="link" class="link-card card" :title="`${title}\n${description || ''}\n${link}`">
         <div class="link-card-info">
             <div class="link-card-title">
                 {{ title }}
@@ -55,11 +55,11 @@ const src = computed(() => getImgUrl(props.icon, props.mirror))
     // 内部需要是块元素
     .link-card-description {
         overflow: hidden;
+        opacity: 0.5;
         margin-top: 0.2em;
         font-size: 0.9em;
         white-space: nowrap;
         text-overflow: ellipsis;
-        color: var(--c-text-3);
     }
 
     .link-card-icon {

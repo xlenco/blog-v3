@@ -27,11 +27,13 @@ fs.writeFileSync(filePath, `---
 title: 
 description: 
 date: ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
-updated: 
+updated:  ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
 # image: 
-categories: []
-tags: []
+# type: story
+categories: [分类]
+tags: [标签1, 标签2]
 
+draft: true # 文章完成后，请删除此行
 ---
 \n\n`, 'utf8')
 

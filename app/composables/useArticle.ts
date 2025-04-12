@@ -1,4 +1,5 @@
 import type ArticleProps from '~/types/article'
+import type { ArticleOrderType } from '~/types/article'
 import { alphabetical } from 'radash'
 
 interface UseCategoryOptions {
@@ -6,6 +7,7 @@ interface UseCategoryOptions {
 }
 
 export function useCategory(list: MaybeRefOrGetter<ArticleProps[]>, options?: UseCategoryOptions) {
+    // BUG: 首次访问时无法绑定分类到查询参数
     const { bindQuery } = options ?? {}
     const category = bindQuery
         ? useRouteQuery(bindQuery, undefined, { transform: (value?: string) => value })
@@ -26,7 +28,7 @@ export function useCategory(list: MaybeRefOrGetter<ArticleProps[]>, options?: Us
 
 export function useArticleSort(list: MaybeRefOrGetter<ArticleProps[]>) {
     const appConfig = useAppConfig()
-    const sortOrder = ref(appConfig.pagination.sortOrder || 'date')
+    const sortOrder = ref<ArticleOrderType>(appConfig.pagination.sortOrder || 'date')
     const isAscending = ref<boolean>()
     const listSorted = computed(() => alphabetical(
         toValue(list),
@@ -42,5 +44,5 @@ export function useArticleSort(list: MaybeRefOrGetter<ArticleProps[]>) {
 
 export function getCategoryIcon(category?: string) {
     const appConfig = useAppConfig()
-    return Reflect.get(appConfig.article.categories, category!)?.icon ?? 'ph:folder-bold'
+    return appConfig.article.categories[category!]?.icon ?? 'ph:folder-bold'
 }

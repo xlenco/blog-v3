@@ -12,7 +12,11 @@
 
     :target {
         border-radius: 0.2rem;
-        background-color: var(--c-primary-soft);
+        animation: highlight 3s;
+
+        @keyframes highlight {
+            50% { background-color: var(--c-primary-soft); }
+        }
     }
 
     >:where(h1, h2, h3, h4, h5, h6) {
@@ -67,7 +71,7 @@
         }
     }
 
-    > hr {
+    hr {
         margin: 3em 0;
         border-top: 0.4em dashed var(--c-border);
     }
@@ -99,6 +103,7 @@
             font-family: var(--font-serif);
             font-weight: bolder;
             text-align: center;
+            text-wrap: balance;
         }
 
         > h2::before {
@@ -121,7 +126,7 @@
             background-color: var(--c-primary-soft);
         }
 
-        p {
+        > p, :not([class]) p {
             text-indent: 2em;
         }
     }
