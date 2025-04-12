@@ -48,7 +48,7 @@ const blogConfig = {
 
     scripts: [
         // 自己部署的 Umami 统计服务
-        { 'src': 'http://umami.xlenco.top/script.js', 'data-website-id': '886b4abd-028c-4aee-81f3-ef26b0c68bc2', 'defer': true },
+        { 'src': 'https://umami.xlenco.top/script.js', 'data-website-id': '886b4abd-028c-4aee-81f3-ef26b0c68bc2', 'defer': true },
 
     ],
 
