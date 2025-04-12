@@ -42,8 +42,7 @@ export default defineAppConfig({
         /** 侧边栏底部图标导航 */
         iconNav: [
             { icon: 'ph:house-bold', text: '个人主页', url: blogConfig.author.homepage },
-            { icon: 'ri:qq-line', text: '交流群: 169994096', url: 'https://jq.qq.com/?_wv=1027&k=lQfNSeEd' },
-            { icon: 'ph:github-logo-bold', text: 'GitHub: L33Z22L11', url: 'https://github.com/L33Z22L11' },
+            { icon: 'ph:github-logo-bold', text: 'GitHub: Xlenco', url: 'https://github.com/xlenco' },
             { icon: 'ph:rss-simple-bold', text: 'Atom订阅', url: '/atom.xml' },
             { icon: 'ph:subway-bold', text: '开往', url: 'https://www.travellings.cn/go-by-clouds.html' },
         ] satisfies NavItem[],
@@ -54,14 +53,13 @@ export default defineAppConfig({
                 items: [
                     { icon: 'ph:rss-simple-bold', text: 'Atom订阅', url: '/atom.xml' },
                     { icon: 'ph:subway-bold', text: '开往', url: 'https://www.travellings.cn/go-by-clouds.html' },
-                    { icon: 'ph:flying-saucer-bold', text: '异次元旅行', url: 'https://travel.moe/go.html?travel=on' },
                 ],
             },
             {
                 title: '社交',
                 items: [
-                    { icon: 'ph:github-logo-bold', text: 'L33Z22L11', url: 'https://github.com/L33Z22L11' },
-                    { icon: 'ri:qq-line', text: '群: 169994096', url: 'https://jq.qq.com/?_wv=1027&k=lQfNSeEd' },
+                    { icon: 'ph:github-logo-bold', text: 'xlenco', url: 'https://github.com/xlenco' },
+                    //    { icon: 'ri:qq-line', text: '群: 169994096', url: 'https://jq.qq.com/?_wv=1027&k=lQfNSeEd' },
                     { icon: 'ph:envelope-simple-bold', text: blogConfig.author.email, url: `mailto:${blogConfig.author.email}` },
                 ],
             },
@@ -70,7 +68,7 @@ export default defineAppConfig({
                 items: [
                     { icon: 'simple-icons:nuxtdotjs', text: 'Nuxt博客已开源', url: 'https://github.com/L33Z22L11/blog-v3' },
                     { icon: 'ph:swatches-bold', text: '主题灵感源自Stellar', url: '/theme' },
-                    { icon: 'ph:certificate-bold', text: '萌ICP备20246888号', url: 'https://icp.gov.moe/?keyword=20246888' },
+                    //     { icon: 'ph:certificate-bold', text: '萌ICP备20246888号', url: 'https://icp.gov.moe/?keyword=20246888' },
                 ],
             },
         ] satisfies Nav,
@@ -80,11 +78,11 @@ export default defineAppConfig({
 
     /** 左侧栏顶部 Logo */
     header: {
-        logo: 'https://weavatar.com/avatar/47c0f2e82b76d9b10eb3023df9e02e4e3fdbeaf5b74b842063f207971e7fbe7b?s=160',
-        /** 展示标题文本，否则展示纯 Logo */
+        logo: 'https://q.qlogo.cn/headimg_dl?dst_uin=1043865083&spec=640&img_type=webp',
+        /** 展示标题，否则展示纯 Logo */
         showTitle: true,
         subtitle: blogConfig.subtitle,
-        emojiTail: ['📄', '🦌', '🙌', '🐟', '🏖️'],
+        emojiTail: ['💖', '🥳', '📑', '🖥️'],
     },
 
     pagination: {

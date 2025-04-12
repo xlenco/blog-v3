@@ -1,5 +1,15 @@
 <!-- 友链页面的“申请友链”要求 -->
 
+
+
+```yaml
+- name: 希乐博客 
+  desc: 总有人间人间一两风，吹我十万八千梦
+  link: https://blog.xlenco.top
+  icon: https://q1.qlogo.cn/g?b=qq&nk=1043865083&s=100
+  feed: https://blog.xlenco.top/atom.xml
+```
+
 - 申请要求：原则上与多数独立博客的友链要求一致
   - 能够**长期更新维护**，并输出**有价值的原创内容**
   - 可以参考 [加入开往](https://www.travellings.cn/docs/join.html) 页面的规则
