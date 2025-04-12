@@ -46,7 +46,7 @@ const blogConfig = {
     robotsNotIndex: ['/preview', '/previews/*'],
 
     scripts: [
-        //        { 'src': 'https://zhi.zhilu.cyou/zhi.js', 'data-website-id': 'a1997c81-a42b-46f6-8d1d-8fbd67a8ef41', 'defer': true },
+        { 'src': 'http://umami.xlenco.top/script.js', 'data-website-id': '886b4abd-028c-4aee-81f3-ef26b0c68bc2', 'defer': true }, ,
         //        { 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': true },
     ],
 
