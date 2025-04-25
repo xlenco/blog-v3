@@ -64,7 +64,7 @@ const blogConfig = {
 
     // 用于 Twikoo 评论系统
     twikoo: {
-        js: 'https://jsd.onmicrosoft.cn/npm/twikoo@1.6.39/dist/twikoo.all.min.js',
+        js: 'https://cdn.iocdn.cc/npm/twikoo@1.6.39/dist/twikoo.all.min.js',
         envId: 'https://twikoo2.xlenco.top/.netlify/functions/twikoo',
         preload: 'https://twikoo2.xlenco.top/.netlify/functions/twikoo',
     },
