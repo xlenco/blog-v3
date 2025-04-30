@@ -87,5 +87,14 @@ export default [{
         avatar: 'https://blog.liuzijian.com/img/logo.jpg',
         archs: ['Hexo', 'CDN (国内)'],
         date: '2024-10-26',
-    }],
+    }, {
+        author: 'iFluxArt',
+        desc: '斐启智境 · 流韵新生',
+        link: 'https://iflux.art/',
+        icon: 'https://iflux.art/favicon.ico',
+        avatar: 'https://iflux.art/favicon.ico',
+        archs: ['Next.js', 'Vercel'],
+        date: '2025-04-16',
+        comment: '文档型知识库，含AIGC、开发、设计、运营、传媒、工具等内容。',
+    },],
 }] satisfies FeedGroup[]
