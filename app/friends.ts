@@ -96,5 +96,14 @@ export default [{
         archs: ['Next.js', 'Vercel'],
         date: '2025-04-16',
         comment: '文档型知识库，含AIGC、开发、设计、运营、传媒、工具等内容。',
+    }, {
+        author: 'Pinpe 的云端',
+        desc: '介绍 一个属于自己的云朵',
+        link: 'https://pinpe.top',
+        icon: 'https://pinpe.top/head.jpg',
+        avatar: 'https://pinpe.top/head.jpg',
+        archs: ['WordPress', '服务器'],
+        date: '2025-05-02',
+        comment: '介绍 一个属于自己的云朵。',
     },],
 }] satisfies FeedGroup[]
