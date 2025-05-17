@@ -98,12 +98,21 @@ export default [{
         comment: '文档型知识库，含AIGC、开发、设计、运营、传媒、工具等内容。',
     }, {
         author: 'Pinpe 的云端',
-        desc: '介绍 一个属于自己的云朵',
+        desc: '一个属于自己的云朵',
         link: 'https://pinpe.top',
         icon: 'https://pinpe.top/head.jpg',
         avatar: 'https://pinpe.top/head.jpg',
         archs: ['WordPress', '服务器'],
         date: '2025-05-02',
         comment: '介绍 一个属于自己的云朵。',
+    }, {
+        author: '粥粥',
+        desc: '我思故我在',
+        link: 'https://www.illusional.top',
+        icon: 'https://www.illusional.top/upload/fba2e09a430e024c585fbf5da748b02.jpg',
+        avatar: 'https://www.illusional.top/upload/fba2e09a430e024c585fbf5da748b02.jpg',
+        archs: ['Halo', '服务器'],
+        date: '2025-05-18',
+        comment: '我思故我在。',
     },],
 }] satisfies FeedGroup[]
