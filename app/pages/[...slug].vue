@@ -31,7 +31,7 @@ else {
         <PostExcerpt v-if="excerpt" :excerpt />
         <ContentRendererMarkdown
             class="article"
-            :class="{ 'md-story': post?.type === 'story' }"
+            :class="getPostTypeClassName(post?.type, { prefix: 'md' })"
             :value="post ?? {}"
             tag="article"
         />

@@ -20,7 +20,7 @@ const auxDateLabel = computed(() => props.date
     <li class="article-item">
         <time :datetime="getLocaleDatetime(mainDate)" :title="getLocaleDatetime(mainDate)">{{ dateLabel }}</time>
         <ZRawLink class="article-link gradient-card" :to :title="description">
-            <span class="article-title" :class="{ 'text-story': type === 'story' }">
+            <span class="article-title" :class="getPostTypeClassName(type)">
                 {{ title }}
             </span>
             <time v-if="useUpdated && isTimeDiffSignificant(date, updated)" class="aux-date" :datetime="getLocaleDatetime(date)" :title="getLocaleDatetime(date)">
@@ -47,9 +47,6 @@ const auxDateLabel = computed(() => props.date
         display: inline-block;
         opacity: 0.4;
         font-family: var(--font-monospace);
-
-        // 缓解移动端 Edge 字体尺寸不准导致的换行溢出
-        white-space: nowrap;
         transition: opacity 0.2s;
 
         &.aux-date {

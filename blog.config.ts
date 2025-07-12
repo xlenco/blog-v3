@@ -93,6 +93,7 @@ const redirectRouteRules = Object.entries(redirectList)
     }, {})
 
 // https://nitro.build/config#routerules
+// @keep-sorted
 export const routeRules = <NitroConfig['routeRules']>{
     ...redirectRouteRules,
     '/api/stats': { prerender: true, headers: { 'Content-Type': 'application/json' } },

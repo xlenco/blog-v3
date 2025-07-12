@@ -24,10 +24,10 @@ if (!fs.existsSync(directory)) {
 // 创建 Markdown 文件
 const filePath = path.join(directory, `${blogTitle}.md`)
 fs.writeFileSync(filePath, `---
-title: 
-description: 
+title: ${blogTitle}
+description: ${blogTitle}
 date: ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
-updated:  ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
+updated: ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
 # image: 
 # type: story
 categories: [分类]
