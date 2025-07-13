@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { toZonedTime } from 'date-fns-tz'
-import { useUmamiData } from '~/composables/useUmamiData'
 
 const appConfig = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
@@ -9,35 +8,20 @@ const buildTime = toZonedTime(runtimeConfig.public.buildTime, appConfig.timezone
 
 const totalWords = ref(appConfig.stats.wordCount)
 const yearlyTip = ref('')
-const { stats: umamiStats, isLoading: umamiLoading } = useUmamiData()
 
-const blogStats = computed(() => [
-    {
-        label: '运营时长',
-        content: timeElapse(appConfig.timeEstablished),
-        tip: `博客于${appConfig.timeEstablished}上线`,
-    },
-    {
-        label: '上次更新',
-        content: timeElapse(buildTime),
-        tip: `构建于${getLocaleDatetime(buildTime)}`,
-    },
-    {
-        label: '总字数',
-        content: totalWords,
-        tip: yearlyTip.value,
-    },
-    {
-        label: '访问量',
-        content: umamiLoading.value ? '加载中...' : formatNumber(umamiStats.value.pageviews.value),
-        tip: '最近30天访问量',
-    },
-    {
-        label: '访客数',
-        content: umamiLoading.value ? '加载中...' : formatNumber(umamiStats.value.visitors.value),
-        tip: '最近30天独立访客',
-    },
-])
+const blogStats = computed(() => [{
+    label: '运营时长',
+    content: timeElapse(appConfig.timeEstablished),
+    tip: `博客于${appConfig.timeEstablished}上线`,
+}, {
+    label: '上次更新',
+    content: timeElapse(buildTime),
+    tip: `构建于${getLocaleDatetime(buildTime)}`,
+}, {
+    label: '总字数',
+    content: totalWords,
+    tip: yearlyTip.value,
+}])
 
 onMounted(async () => {
     const stats = await $fetch('/api/stats')
