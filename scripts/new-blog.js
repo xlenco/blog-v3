@@ -25,7 +25,7 @@ if (!fs.existsSync(directory)) {
 const filePath = path.join(directory, `${blogTitle}.md`)
 fs.writeFileSync(filePath, `---
 title: ${blogTitle}
-description: ${blogTitle}
+description: 
 date: ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
 updated: ${new Date().toLocaleDateString('en-CA')} ${new Date().toLocaleTimeString()}
 # image: 
